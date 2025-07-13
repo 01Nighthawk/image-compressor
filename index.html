@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compressor 🖼️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Compressor <span>🖼️</span></h1>
+        
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📁</div>
+            <p class="upload-text">Drag & drop your images here or <strong>browse</strong></p>
+            <input type="file" id="fileInput" class="file-input" accept="image/*">
+            <button class="browse-btn" id="browseBtn"><span>🔍</span> Select Image</button>
+            <p class="file-info" id="fileInfo">No file selected</p>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="qualitySlider">Compression Level</label>
+                <div class="slider-container">
+                    <input type="range" id="qualitySlider" class="slider" min="0" max="100" value="70">
+                    <span class="slider-value" id="qualityValue">70%</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label>Output Format</label>
+                <div class="format-options">
+                    <div class="format-option active" data-format="original">Original</div>
+                    <div class="format-option" data-format="jpeg">JPEG</div>
+                    <div class="format-option" data-format="png">PNG</div>
+                    <div class="format-option" data-format="webp">WebP</div>
+                </div>
+            </div>
+            
+            <button class="action-btn" id="compressBtn" disabled>
+                <span>⚡</span> Compress Image
+            </button>
+            <p class="error" id="errorMsg"></p>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Compressing your image...</p>
+        </div>
+        
+        <div class="results" id="results">
+            <h2>Compression Results <span>📊</span></h2>
+            
+            <div class="comparison">
+                <div class="image-box">
+                    <h3><span>🖼️</span> Original Image</h3>
+                    <img id="originalPreview" class="image-preview">
+                    <p class="stats" id="originalStats"></p>
+                </div>
+                <div class="image-box">
+                    <h3><span>✨</span> Compressed Image</h3>
+                    <img id="compressedPreview" class="image-preview">
+                    <p class="stats" id="compressedStats"></p>
+                </div>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Original</th>
+                        <th>Compressed</th>
+                        <th>Savings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="emoji">📏</span> File Size</td>
+                        <td id="originalSize">-</td>
+                        <td id="compressedSize">-</td>
+                        <td id="sizeSavings" class="highlight">-</td>
+                    </tr>
+                    <tr>
+                        <td><span class="emoji">📊</span> Dimensions</td>
+                        <td id="originalDimensions">-</td>
+                        <td id="compressedDimensions">-</td>
+                        <td id="dimensionsSavings">-</td>
+                    </tr>
+                    <tr>
+                        <td><span class="emoji">⚡</span> Quality</td>
+                        <td>-</td>
+                        <td id="compressedQuality">70%</td>
+                        <td id="qualityInfo">Balanced</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <button class="download-btn" id="downloadBtn">
+                <span>💾</span> Download Compressed Image
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
